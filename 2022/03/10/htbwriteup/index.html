@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="My first article, N3vver&#39;s Blog">
+    <meta name="keywords" content="HTB practice, N3vver&#39;s Blog">
     <meta name="description" content="本博客主要记录一下本人在学习生活种的点点滴滴，如有错误，请指正！！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>My first article | N3vver&#39;s Blog</title>
+    <title>HTB practice | N3vver&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -237,7 +237,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/4sh3s/4sh3s.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -294,7 +294,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/4sh3s/4sh3s.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">My first article</h1>
+                    <h1 class="description center-align post-title">HTB practice</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/pritice/">
-                                <span class="chip bg-color">pritice</span>
+                            <a href="/tags/HTB/">
+                                <span class="chip bg-color">HTB</span>
                             </a>
                         
                     </div>
@@ -457,21 +457,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-10
+                    2022-03-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    41
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -494,7 +494,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="练习一下"><a href="#练习一下" class="headerlink" title="练习一下"></a>练习一下</h1><p>这是算是我的第一个博客把，今天发现了这项技术，没什么好说的，那就祝大家身体健康了。</p>
+                <h2 id="HackTheBox-Tier2-Oopsie"><a href="#HackTheBox-Tier2-Oopsie" class="headerlink" title="HackTheBox Tier2 Oopsie"></a>HackTheBox Tier2 Oopsie</h2><h4 id="1-用kali网络连接到HTB"><a href="#1-用kali网络连接到HTB" class="headerlink" title="1.用kali网络连接到HTB"></a>1.用kali网络连接到HTB</h4><p>点击<code>CONNECT to HTB</code>,然后下载一个文件，将其复制到kali，打开终端输入 <code>sudo openvpn starting_point_n3vver.ovpn</code>命令进行连接，如出现下面的界面则表示连接成功</p>
+<p><img src="/HTBWriteUp.assets/%E8%BF%9E%E6%8E%A5%E5%88%B0HTB.png" alt="连接到HTB"></p>
+<h4 id="2-信息收集及Hack"><a href="#2-信息收集及Hack" class="headerlink" title="2.信息收集及Hack"></a>2.信息收集及Hack</h4><p>然后打开靶机，会看到一个IP地址，用nmap进行扫描 <code>$ sudo nmap -sC -sV 10.129.95.191 </code>,可以看到目标机器开了22端口和80 端口</p>
+<p><img src="/HTBWriteUp.assets/nmap%E6%89%AB%E9%9D%A2%E7%BB%93%E6%9E%9C.png" alt="扫描结果"></p>
+<p>访问一下80端口，发现一个web</p>
+<p>页面，先用dirsearch扫面没有结果，但是在burp的爬虫结果里看到了一个可疑的目录：</p>
+<p><img src="/HTBWriteUp.assets/burp%E7%88%AC%E8%99%AB%E7%95%8C%E9%9D%A2.png" alt="burp爬虫结果"></p>
+<p>访问<code>cdn-cgi/login</code>路径得到一个登录界面</p>
+<p><img src="/HTBWriteUp.assets/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2.png" alt="登录界面"></p>
+<p>点击不懂账号密码，可以进行爆破，也可以用来宾用户看看，点击<code>Login as Guest</code>进入后台后到账户信息那里看看，发现id参数可疑，可能存在越权漏洞</p>
+<p><img src="/HTBWriteUp.assets/%E8%B4%A6%E5%8F%B7%E4%BF%A1%E6%81%AF.png" alt="账户信息"></p>
+<p>一般来说管理员的id是1，于是id=2改成id=1看看</p>
+<p><img src="/HTBWriteUp.assets/%E7%AE%A1%E7%90%86%E5%91%98%E4%BF%A1%E6%81%AF.png" alt="管理员信息"></p>
+<p>成功越权，得到了管理员权限，看看<code>Uploads</code>界面：</p>
+<p><img src="/HTBWriteUp.assets/%E4%B8%8A%E4%BC%A0%E7%95%8C%E9%9D%A2.png" alt="上传1"></p>
+<p>发现如果需要上传文件则需要管理员界面，不知道超级管理员的id那只能爆破了，先在账户信息那里抓个包，然后对id进行爆破，我这里从1-100先试一下，发现在id为30的时候结果和其他的不同：</p>
+<p><img src="/HTBWriteUp.assets/%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98id.png" alt="爆破结果"></p>
+<p>将id改为30后正是超级管理员的信息而且发现超级管理员的Access ID为86575，于是以超级管理员的身份去访问<code>Uploads</code>界面：</p>
+<p><img src="/HTBWriteUp.assets/%E8%B6%8A%E6%9D%83.png" alt="越权"></p>
+<p>进去后发现只有个上传也页面，而且没有任何的过滤，直接上传webshell，这里我使用的是kali自带的webshell<code>usr/share/webshells/php/php-reverse-shell.php</code>,先用命令<code>sudo mv /usr/share/webshells/php/php-reverse-shell.php /home/kali/Desktop</code>然后修改里面的反弹的ip为我们kali的ip：</p>
+<p><img src="/HTBWriteUp.assets/%E4%BF%AE%E6%94%B9ip.png" alt="修改ip"></p>
+<p>然后直接上传，在上传时记得修改包的id为超级管理员的id不然不成功。然后先在kali进行监听1234端口<code>nc -lvp 1234</code>,有于这里没有给出上传后文件的具体路径，所以可以用dirsearch进行扫面，当然看到uploads，就先看看在不在uploads了，发现为<code>/uploads/php-reverse-shell.php</code>,然后在浏览器访问这个文件就可以进行反弹shell了</p>
+<p><img src="/HTBWriteUp.assets/%E5%8F%8D%E5%BC%B9shell%E6%88%90%E5%8A%9F.png" alt="反弹成功"></p>
+<p>由于这个不是交互的shell，可以用<code>python3 -c 'import pty; pty.spawn("/bin/bash")'</code>进行获取交互的shell。</p>
+<p>然后就是提权方面，在/home 目录中发现了用户robert，而且在web目录的登录文件夹中发现<code>db.php</code>,里面包含了<code>robert</code>的用户和密码</p>
+<p><img src="/HTBWriteUp.assets/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81.png" alt="用户信息"></p>
+<p>用su进行切换账户，在用密码可以进行登录。然后道，可以获得第一个flag：</p>
+<p><img src="/HTBWriteUp.assets/flag1.png" alt="flag1"></p>
+<p>提权的话靶机已经标记suid，所以可以试试suid提权，这方面本人比较菜，所以就是看一下其他大佬的思路了。</p>
+<p>先<code>id</code>查看一下当前用户的id，</p>
+<p><img src="/HTBWriteUp.assets/id.png" alt="id"></p>
+<p>查看一下用户信息，发现所属的组是<code>bugtracker</code>于是用命令<code>find / -type f -group bugtracker 2&gt;/dev/null</code>查找组内的特殊文件</p>
+<p><img src="/HTBWriteUp.assets/suid.png" alt="suid"></p>
+<p>发现<code>usr/bin/bugtracker</code>文件，查看一下它的权限<code>ls -al</code></p>
+<p><img src="/HTBWriteUp.assets/lss.png" alt="ls"></p>
+<p>发现是有s权限的，有setuid权限，setuid是指赋予一个进程他所有者的权限，任意存取该文件的所有者能使用的全部系统资源，就是说你只要有权执行这个可执行文件，而这个文件里调用了只有root系统命令，那么执行的时候这个进程就相当于root。关于这个s权限及其提权可以看[<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yiyide266/p/10047340.html]%E3%80%81[http://www.361way.com/suid-privilege/5965.html]">https://www.cnblogs.com/yiyide266/p/10047340.html]、[http://www.361way.com/suid-privilege/5965.html]</a></p>
+<p>然后用<code>strings</code>查看这个文件可以执行那些命令，发现<code>cat /root/reports</code>,那么我们就要进这个目录，这条命令只有root权限的人才能调用，所以重写这条命令，就能得到root权限,所以要进行改写<code>cat</code>命令，下面是具体操作：</p>
+<ol>
+<li>将/tmp目录设置为环境变量：<code>export PATH=/tmp:$PATH</code></li>
+<li>切换道/tmp 目录: <code>cd /tmp</code></li>
+<li>在此构造恶意的cat命令: <code>echo '/bin/sh' &gt; cat</code></li>
+<li>给cat运行权限:<code>chmod +x cat</code></li>
+</ol>
+<p>然后执行bugtracker文件，根据文件提示随便输入一个ID，这里就以输入1为例。系统成功的以root权限执行了</p>
+<p><img src="/HTBWriteUp.assets/root.png" alt="root"></p>
+<p>然后获得root的flag：</p>
+<p><img src="/HTBWriteUp.assets/flag2.png" alt="flag2"></p>
+<p>这里不能用cat，应为我们已经重写cat了，所以用more来读取。</p>
+<p>还有其他问题答案：</p>
+<ol>
+<li><p>With what kind of tool can intercept web traffic?  <code>proxy</code></p>
+</li>
+<li><p>What is the path to the directory on the webserver that returns a login page? <code>/cdn-cgi/login</code></p>
+</li>
+<li><p>What can be modified in Firefox to get access to the upload page? <code>cookie</code></p>
+</li>
+<li><p>What is the access ID of the admin user? <code>34322</code></p>
+</li>
+<li><p>On uploading a file, what directory does that file appear in on the server? <code>/uploads</code></p>
+</li>
+<li><p>What is the file that contains the password that is shared with the robert user?  <code>db.php</code></p>
+</li>
+<li><p>What executible is run with the option “-group bugtracker” to identify all files owned by the bugtracker group? <code>find</code></p>
+</li>
+<li><p>Regardless of which user starts running the bugtracker executable, what’s user privileges will use to run? <code>root</code></p>
+</li>
+<li><p>What SUID stands for? <code>Set owner User ID</code></p>
+</li>
+<li><p>What is the name of the executable being called in an insecure manner? <code>cat</code></p>
+<p>至于user flag和root flag，上面已经给出。Love yourself and have fun for your life.</p>
+</li>
+</ol>
 
                 
             </div>
@@ -521,7 +592,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://4sh3s.github.io/2022/03/10/my-first-article/">https://4sh3s.github.io/2022/03/10/my-first-article/</a>
+                    <a href="https://4sh3s.github.io/2022/03/10/htbwriteup/">https://4sh3s.github.io/2022/03/10/htbwriteup/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,8 +630,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/pritice/">
-                                    <span class="chip bg-color">pritice</span>
+                                <a href="/tags/HTB/">
+                                    <span class="chip bg-color">HTB</span>
                                 </a>
                             
                         </div>
@@ -581,132 +652,6 @@
 
                 </div>
             </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -735,13 +680,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/03/10/my-first-article/">
+                <a href="/2022/03/10/htbwriteup/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="My first article">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HTB practice">
                         
-                        <span class="card-title">My first article</span>
+                        <span class="card-title">HTB practice</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -766,8 +711,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/pritice/">
-                        <span class="chip bg-color">pritice</span>
+                    <a href="/tags/HTB/">
+                        <span class="chip bg-color">HTB</span>
                     </a>
                     
                 </div>
