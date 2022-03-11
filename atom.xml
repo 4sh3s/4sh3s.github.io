@@ -6,7 +6,7 @@
   <link href="https://4sh3s.github.io/atom.xml" rel="self"/>
   
   <link href="https://4sh3s.github.io/"/>
-  <updated>2022-03-11T04:47:20.696Z</updated>
+  <updated>2022-03-11T07:15:52.141Z</updated>
   <id>https://4sh3s.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://4sh3s.github.io/2022/03/10/htbwriteup/"/>
     <id>https://4sh3s.github.io/2022/03/10/htbwriteup/</id>
     <published>2022-03-10T12:06:20.000Z</published>
-    <updated>2022-03-11T04:47:20.696Z</updated>
+    <updated>2022-03-11T07:15:52.141Z</updated>
     
     
       
@@ -34,8 +34,12 @@
     
     
     
+    <category term="pratice" scheme="https://4sh3s.github.io/categories/pratice/"/>
+    
     
     <category term="HTB" scheme="https://4sh3s.github.io/tags/HTB/"/>
+    
+    <category term="Hack" scheme="https://4sh3s.github.io/tags/Hack/"/>
     
   </entry>
   
