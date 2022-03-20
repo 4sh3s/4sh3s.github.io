@@ -6,7 +6,7 @@
   <link href="https://4sh3s.github.io/atom.xml" rel="self"/>
   
   <link href="https://4sh3s.github.io/"/>
-  <updated>2022-03-11T07:15:52.141Z</updated>
+  <updated>2022-03-18T08:56:25.492Z</updated>
   <id>https://4sh3s.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hadoop使用练习</title>
+    <link href="https://4sh3s.github.io/2022/03/18/hadoop-shi-yong-lian-xi/"/>
+    <id>https://4sh3s.github.io/2022/03/18/hadoop-shi-yong-lian-xi/</id>
+    <published>2022-03-18T04:41:57.000Z</published>
+    <updated>2022-03-18T08:56:25.492Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Hadoop-API-环境配置&quot;&gt;&lt;a href=&quot;#Hadoop-API-环境配置&quot; class=&quot;headerlink&quot; title=&quot;Hadoop API 环境配置&quot;&gt;&lt;/a&gt;Hadoop API 环境配置&lt;/h3&gt;&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="practice" scheme="https://4sh3s.github.io/categories/practice/"/>
+    
+    
+    <category term="hadoop" scheme="https://4sh3s.github.io/tags/hadoop/"/>
+    
+  </entry>
   
   <entry>
     <title>HTB practice</title>

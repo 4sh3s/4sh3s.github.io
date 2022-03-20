@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Hadoop使用练习</title>
+      <link href="/2022/03/18/hadoop-shi-yong-lian-xi/"/>
+      <url>/2022/03/18/hadoop-shi-yong-lian-xi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Hadoop-API-环境配置"><a href="#Hadoop-API-环境配置" class="headerlink" title="Hadoop API 环境配置"></a>Hadoop API 环境配置</h3><h4 id="JAVA-开发环境配置"><a href="#JAVA-开发环境配置" class="headerlink" title="JAVA 开发环境配置"></a>JAVA 开发环境配置</h4><p>实验环境：ubuntu20+java11+idea</p><ol><li><p>现在idea上先建一个项目，选择Maven，SDK版本选择java11：</p><p><img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/new.png"></p><p>然后输入自己的项目名称和项目地址后点击完成，即可创建成功。</p></li><li><p>导入jar包</p><p>我们首先需要知道我们要导入的jar包的具体位置： <code>\hadoop-2.6.0\share\hadoop</code>，即在hadoop根目录下的share文件夹中的hadoop文件夹中。</p><p>然后在IDEA中打开project Structure选项，快捷键<code>ctrl+alt+shift+S</code>。选择modules，如图：</p></li></ol><p><img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/dao.png"></p><p>注：hadoop的依赖包都在安装包中的 share/hadoop，但是这个不能直接添加 share/hadoop 目录，添加的目录只能是jar所在的目录，如xx.jar所在的路径经 /share/hadoop/common/lib/xx.jar 添加 /share/hadoop/common/lib 正确， /share/hadoop/common 则无法找到xx.jar包。 </p><ol start="3"><li><p>运行测试代码</p></li><li><p>打包程序</p><p>File-&gt;Project Structure 中选择 Artifacts 点击 ”+“ 选择 JAR-&gt;Empty </p><p><img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/%E6%89%93%E5%8C%851.png"></p><p>改好名字后选择项目编译的结果进行打包</p><p><img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/2.png"></p></li></ol><p>​            然后在Build-&gt;Build Artifacts 弹出的对话框中选择Build </p><p>​                <img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/3.png"></p><p>​        在弹出来的窗口选择build<img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/4.png">    </p><p>如果没有错误就回在out目录下生成jar文件，如上图。</p><ol start="5"><li>在IDEA中运行MapReduce程序</li></ol><p> Run-&gt;Edit Configurations在弹出的对话框 选择Application，在Program arguments中输入程序所需要的运行参数 </p><p>注：远程调试代码 必须写上hdfs://localhost:9000部分，不然此处将识别为本地路径。 </p><p> <code>hdfs://localhost:9000/aa.log hdfs://localhost:9000/wordcout_output</code></p><p> idea console中输出运行日志。默认条件下console只输出error 与fatal级别的log ，</p><p>在src中目录中右击resources 选择 Mark Directory as 中 选中Resources Root。</p><p> 在resources中新建log4j.properties文件。仿照 hadoop按装包中的 /conf/log4j.properties.template 。</p><p><img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/6.png"></p><p>输入配置：</p><pre class="line-numbers language-none"><code class="language-none"># set everything to be logged to the console log4j.rootCategory=INFO, console log4j.threshold=ALL log4j.appender.console=org.apache.log4j.ConsoleAppender log4j.appender.console.target=System.err log4j.appender.console.layout=org.apache.log4j.PatternLayout log4j.appender.console.layout.ConversionPattern=%d{yy/MM/dd HH:mm:ss} %p %c{1}: %m%n <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="/Hadoop%E4%BD%BF%E7%94%A8%E7%BB%83%E4%B9%A0.assets/7.png"></p><p>然后就可以进行运行项目了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> practice </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTB practice</title>
       <link href="/2022/03/10/htbwriteup/"/>
       <url>/2022/03/10/htbwriteup/</url>
